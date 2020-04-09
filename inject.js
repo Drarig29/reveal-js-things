@@ -10,3 +10,5 @@ function gotoSlide() {
     else
         alert("Ce n'est pas un numéro valide !");
 }
+
+gotoSlide();
