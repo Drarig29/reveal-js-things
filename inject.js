@@ -3,8 +3,10 @@ Reveal.goto = slideNumber => {
     Reveal.slide(indices.h, indices.v);
 };
 
+Reveal.getCurrentSlideNumber = () => Reveal.getSlides().indexOf(Reveal.getCurrentSlide()) + 1;
+
 function gotoSlide() {
-    let number = prompt("Entrez un numéro de diapo :", 1).trim();
+    let number = prompt("Entrez un numéro de diapo :", Reveal.getCurrentSlideNumber()).trim();
     if (number.match(/^\d+$/))
         Reveal.goto(number);
     else
