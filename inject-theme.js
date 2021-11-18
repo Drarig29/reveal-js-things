@@ -4,9 +4,10 @@ var themes = ['black', 'beige', 'blood', 'league', 'moon', 'night', 'serif', 'si
 var themeStr = themes.map((elem, index) => `${elem} (${index})`).join(', ');
 
 function setTheme(index) {
-  const theme = themes[index];
-  const src = document.getElementById("theme").href.replace(/(css\/theme)\/\w+\.css/, `$1/${theme}.css`);
-  document.getElementById("theme").href = src;
+  const selectedTheme = themes[index];
+  const themeLink = document.querySelector('head > link[href^="css/theme"]');
+  const src = themeLink.href.replace(/(?<=css\/theme\/)(\w+)(?=\.css)/, selectedTheme);
+  themeLink.href = src;
 }
 
 function changeTheme() {
